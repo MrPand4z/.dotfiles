@@ -3,6 +3,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Disable the built-in file explorer so Neo-Tree can replace it
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local opt = vim.opt
 
 -- ======================
