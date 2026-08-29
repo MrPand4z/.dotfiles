@@ -1,0 +1,8 @@
+# Neovim local / generated
+.luarc.json
+lazy-lock.json.bak
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
