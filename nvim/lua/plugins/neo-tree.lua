@@ -55,6 +55,67 @@ return {
           hide_dotfiles = false,
           hide_gitignored = true,
         },
+        components = {
+          git_bar = function(config, node, state)
+            config = vim.tbl_deep_extend("force", config or {}, {
+              symbols = {
+                added = "▎",
+                deleted = "▁",
+                modified = "▎",
+                renamed = "▎",
+                untracked = "▎",
+                ignored = "",
+                unstaged = "",
+                staged = "",
+                conflict = "▎",
+              },
+            })
+
+            local git = require("neo-tree.sources.common.components").git_status(config, node, state)
+            if git == nil or vim.tbl_isempty(git) then
+              return { text = " " }
+            end
+
+            -- single component: { text = "...", highlight = "..." }
+            if git.text then
+              if vim.trim(git.text) == "" then
+                return { text = " " }
+              end
+              return {
+                text = "▎",
+                highlight = git.highlight,
+              }
+            end
+
+            -- list of components: { { text = "...", highlight = "..." }, ... }
+            local first = git[1]
+            if first and first.highlight then
+              local mark = (first.text and vim.trim(first.text):find("▁")) and "▁" or "▎"
+              return {
+                text = mark,
+                highlight = first.highlight,
+              }
+            end
+
+            return { text = " " }
+          end,
+        },
+        renderers = {
+          file = {
+            { "git_bar" },
+            { "indent" },
+            { "icon" },
+            { "name" },
+            { "diagnostics" },
+          },
+          directory = {
+            { "git_bar" },
+            { "indent" },
+            { "icon" },
+            { "name" },
+            { "diagnostics" },
+          },
+        },
       },
       window = {
         position = "left",
@@ -80,16 +141,24 @@ return {
       },
       default_component_configs = {
         git_status = {
+          align = "left",
           symbols = {
-            added = "A",
-            deleted = "D",
-            modified = "M",
-            renamed = "R",
-            untracked = "?",
-            ignored = "I",
-            unstaged = "U",
-            staged = "+",
-            conflict = "C",
+            -- change-type
+            added = "▎",
+            deleted = "▁",
+            modified = "▎",
+            renamed = "▎",
+            -- status only
+            untracked = "▎",
+            ignored = "",
+            unstaged = "",
+            staged = "",
+            conflict = "▎",
+            -- untracked = "", -- ?
+            -- ignored   = "", -- skipped
+            -- unstaged  = "", -- modified
+            -- staged    = "", -- check
+            -- conflict  = "", -- warning
           },
         },
         indent = {

@@ -37,3 +37,13 @@ map("n", "<A-k>", "<cmd>m .-2<CR>==", { desc = "Move line up" })
 -- Visual mode (move the whole selection)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Toggle comment
+map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+map("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
+
+map("v", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+
+map("i", "<C-_>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
+map("i", "<C-/>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
