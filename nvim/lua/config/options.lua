@@ -17,6 +17,9 @@ opt.relativenumber = true  -- Show relative line numbers (useful for motions lik
 opt.cursorline = true      -- Highlight the line where the cursor is
 opt.signcolumn = "yes"     -- Always show the sign column (prevents text shifting when diagnostics appear)
 
+opt.fillchars = {
+  eob = " ",
+}
 -- ======================
 -- Colors
 -- ======================

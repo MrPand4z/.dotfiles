@@ -42,8 +42,8 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 map("n", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
 map("n", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
 
-map("v", "<C-_>", "gcc", { remap = true, desc = "Toggle comment" })
-map("v", "<C-/>", "gcc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
+map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 
 map("i", "<C-_>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
 map("i", "<C-/>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
