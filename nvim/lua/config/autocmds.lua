@@ -6,17 +6,17 @@ local autocmd = vim.api.nvim_create_autocmd
 -- vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive", { fg = "#313244" })
 -- vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive", { fg = "#1e1e2e" })
 
--- Highligh on yank
+-- Highlight on yank
 autocmd("TextYankPost", {
 	group = augroup("highlight_yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timout = 200 })
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
 	end,
 })
 
 autocmd("VimResized", {
 	group = augroup("resize_splits", { clear = true }),
 	callback = function()
-		vim.cmd("tabdo wincdm = ")
+		vim.cmd("tabdo wincmd = ")
 	end,
 })

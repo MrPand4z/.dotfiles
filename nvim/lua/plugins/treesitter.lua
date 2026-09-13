@@ -3,7 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     branch = "master", -- keep the familiar API (ensure_installed)
     lazy = false, -- treesitter should not be lazy-loaded
-    build = "TSUpdate",
+    build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
         -- Parsers you want installed automatically

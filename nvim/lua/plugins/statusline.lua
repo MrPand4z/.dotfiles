@@ -43,7 +43,7 @@ return {
 
               for _, win in ipairs(vim.api.nvim_list_wins()) do
                 local buf = vim.api.nvim_win_get_buf(win)
-                local other = format_branch(vim.b[buf].gisigns_status_dict)
+                local other = format_branch(vim.b[buf].gitigns_status_dict)
                 if other then
                   vim.g.statusline_branch = other
                   return other

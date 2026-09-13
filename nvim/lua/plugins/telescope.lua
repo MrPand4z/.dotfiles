@@ -27,7 +27,7 @@ return {
           },
           layout_strategy = "horizontal",
           layout_config = {
-            -- vertical = { widht = 0.5 },
+            -- vertical = { width = 0.5 },
             horizontal = {
               prompt_position = "top",
               width = { padding = 0.05 },

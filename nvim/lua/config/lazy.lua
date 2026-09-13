@@ -33,12 +33,12 @@ require("lazy").setup({
 		colorscheme = { "tokyonight", "habamax" }, -- fallback
 	},
 	checker = {
-		enable = true,
+		enabled = true,
 		notify = false,
 	},
 	performance = {
 		rtp = {
-			disable_lugins = {
+			disable_plugins = {
 				"gzip",
 				"tarPlugin",
 				"tohtml",

@@ -5,7 +5,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			style = "frappe", -- or "latte", "mocha", "macchiato"
+			flavor = "frappe", -- or "latte", "mocha", "macchiato"
 		},
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
